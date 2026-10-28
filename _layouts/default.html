@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% seo %}
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="{{ '/' | relative_url }}" class="site-title">
+      Climbing FKT
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/eldorado-canyon/' | relative_url }}">Eldorado Canyon</a>
+      <a href="{{ '/flatirons/' | relative_url }}">Flatirons</a>
+      <a href="{{ '/rmnp/' | relative_url }}">RMNP</a>
+      <a href="{{ '/other-colorado/' | relative_url }}">Other Colorado</a>
+      <a href="{{ '/submit/' | relative_url }}">Submit an FKT</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {{ 'now' | date: '%Y' }} Climbing FKT.
+      All rights reserved.</p>
+    <p>
+      <a href="{{ '/about/' | relative_url }}">About</a> |
+      <a href="{{ '/verification/' | relative_url }}">Verification Standards</a>
+    </p>
+  </footer>
+</body>
+</html>
