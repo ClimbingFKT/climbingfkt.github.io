@@ -3,42 +3,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
 
-  {% seo %}
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
 
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <meta name="description"
+        content="{{ page.description | default: site.description | escape }}">
+
+  <link rel="canonical"
+        href="{{ page.url | absolute_url }}">
+
+  <link rel="stylesheet"
+        href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 
-{% include footer.html %}
-  
 <body>
-  <header class="site-header">
-    <a href="{{ '/' | relative_url }}" class="site-title">
-      Climbing FKT
-    </a>
+  <div class="site-container">
 
-    <nav aria-label="Main navigation">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/eldorado-canyon/' | relative_url }}">Eldorado Canyon</a>
-      <a href="{{ '/flatirons/' | relative_url }}">Flatirons</a>
-      <a href="{{ '/rmnp/' | relative_url }}">RMNP</a>
-      <a href="{{ '/other-colorado/' | relative_url }}">Other Colorado</a>
-      <a href="{{ '/submit/' | relative_url }}">Submit an FKT</a>
-    </nav>
-  </header>
+    <header class="site-header">
+      <a href="{{ '/' | relative_url }}"
+         class="site-logo">
+        CLIMBING FKT
+      </a>
 
-  <main id="main-content">
-    {{ content }}
-  </main>
+      <nav aria-label="Main navigation">
+        <a href="{{ '/records/' | relative_url }}">
+          Records
+        </a>
+        <a href="{{ '/submit/' | relative_url }}">
+          Submit
+        </a>
+        <a href="{{ '/about/' | relative_url }}">
+          About
+        </a>
+      </nav>
+    </header>
 
-  <footer class="site-footer">
-    <p>&copy; {{ 'now' | date: '%Y' }} Climbing FKT.
-      All rights reserved.</p>
-    <p>
-      <a href="{{ '/about/' | relative_url }}">About</a> |
-      <a href="{{ '/verification/' | relative_url }}">Verification Standards</a>
-    </p>
-  </footer>
+    <main id="main-content">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+  </div>
 </body>
 </html>
