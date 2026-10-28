@@ -1,0 +1,31 @@
+
+# Site Information
+title: "Climbing FKT"
+description: "Verified fastest known times (FKTs) for technical rock climbing routes in Colorado. Documenting speed climbing records, athletes, and route history."
+url: "https://climbingfkt.com"
+baseurl: ""
+
+# Jekyll
+markdown: kramdown
+permalink: /:title/
+
+# GitHub Pages Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from generated website
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Default Settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
