@@ -8,14 +8,16 @@
 
   <title>
     {% if page.title %}
-      {{ page.title }} | {{ site.title }}
+      {{ page.title }} | Colorado Climbing FKTs
     {% else %}
-      {{ site.title }}
+      Colorado Climbing FKTs | Speed Climbing Records
     {% endif %}
   </title>
 
   <meta name="description"
         content="{{ page.description | default: site.description | escape }}">
+
+  <meta name="robots" content="index, follow">
 
   <link rel="canonical"
         href="{{ page.url | absolute_url }}">
@@ -25,33 +27,118 @@
 </head>
 
 <body>
-  <div class="site-container">
 
-    <header class="site-header">
-      <a href="{{ '/' | relative_url }}"
-         class="site-logo">
-        CLIMBING FKT
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+
+      <a class="site-title"
+         href="{{ '/' | relative_url }}">
+        Colorado Climbing FKTs
       </a>
 
-      <nav aria-label="Main navigation">
-        <a href="{{ '/records/' | relative_url }}">
-          Records
-        </a>
+      <nav class="site-nav" aria-label="Main navigation">
+
+        <div class="dropdown">
+          <button class="dropbtn"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="climbing-areas-menu">
+            Climbing Areas &#9662;
+          </button>
+
+          <div class="dropdown-content"
+               id="climbing-areas-menu">
+
+            <a href="{{ '/records/eldorado-canyon/' | relative_url }}">
+              Eldorado Canyon
+            </a>
+
+            <a href="{{ '/records/flatirons/' | relative_url }}">
+              Flatirons
+            </a>
+
+            <a href="{{ '/records/rmnp/' | relative_url }}">
+              Rocky Mountain National Park
+            </a>
+
+            <a href="{{ '/records/other-colorado/' | relative_url }}">
+              Other Colorado
+            </a>
+
+          </div>
+        </div>
+
         <a href="{{ '/submit/' | relative_url }}">
           Submit
         </a>
+
         <a href="{{ '/about/' | relative_url }}">
           About
         </a>
+
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main id="main-content">
-      {{ content }}
-    </main>
+  <!-- Page Content -->
+  <main class="site-content">
+    {{ content }}
+  </main>
 
-    {% include footer.html %}
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
 
-  </div>
+      <p>
+        &copy; {{ 'now' | date: '%Y' }}
+        Colorado Climbing FKTs.
+        All rights reserved.
+      </p>
+
+      <p>
+        Documenting verifiable climbing speed records
+        across Colorado.
+      </p>
+
+      <p>
+        <a href="{{ '/' | relative_url }}">Home</a>
+        |
+        <a href="{{ '/submit/' | relative_url }}">Submit</a>
+        |
+        <a href="{{ '/about/' | relative_url }}">About</a>
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    const dropdownButton = document.querySelector('.dropbtn');
+    const dropdownMenu = document.querySelector('.dropdown-content');
+
+    dropdownButton.addEventListener('click', () => {
+      const isOpen =
+        dropdownButton.getAttribute('aria-expanded') === 'true';
+
+      dropdownButton.setAttribute('aria-expanded', String(!isOpen));
+      dropdownMenu.classList.toggle('open', !isOpen);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.dropdown')) {
+        dropdownButton.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        dropdownButton.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('open');
+        dropdownButton.focus();
+      }
+    });
+  </script>
+
 </body>
 </html>
