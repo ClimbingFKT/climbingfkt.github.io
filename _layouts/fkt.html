@@ -1,0 +1,67 @@
+
+---
+layout: default
+---
+
+<article class="fkt-record">
+
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.area %}
+      <p>{{ page.area | escape }}</p>
+    {% endif %}
+  </header>
+
+  <section aria-label="FKT record">
+    <h2>Fastest Known Time</h2>
+
+    <dl>
+      <dt>Athlete(s)</dt>
+      <dd>{{ page.athletes | escape }}</dd>
+
+      <dt>Time</dt>
+      <dd><strong>{{ page.time | escape }}</strong></dd>
+
+      <dt>Date</dt>
+      <dd>{{ page.date | date: "%B %-d, %Y" }}</dd>
+
+      <dt>Style</dt>
+      <dd>{{ page.style | escape }}</dd>
+
+      <dt>Timing</dt>
+      <dd>{{ page.timing | escape }}</dd>
+    </dl>
+  </section>
+
+  {% if page.splits %}
+  <section>
+    <h2>Splits</h2>
+    <ul>
+      {% for split in page.splits %}
+        <li>{{ split.point | escape }}:
+          {{ split.time | escape }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section>
+    <h2>Route & Trip Report</h2>
+    {{ content }}
+  </section>
+
+  <section>
+    <h2>Verification</h2>
+
+    {% if page.gps_url %}
+      <p><a href="{{ page.gps_url | escape }}">
+        GPS Activity / Strava
+      </a></p>
+    {% endif %}
+
+    {% if page.verification_notes %}
+      <p>{{ page.verification_notes | escape }}</p>
+    {% endif %}
+  </section>
+
+</article>
