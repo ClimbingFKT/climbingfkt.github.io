@@ -1,21 +1,12 @@
+
 ---
-layout: default
 ---
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- SEO -->
   <title>Colorado Climbing FKTs | Speed Climbing Records</title>
 
@@ -23,7 +14,6 @@ layout: default
         content="Colorado climbing FKTs and speed records. Documenting verified fastest known times in Eldorado Canyon, the Flatirons, Rocky Mountain National Park, and beyond.">
 
   <meta name="robots" content="index, follow">
-
   <link rel="canonical" href="https://climbingfkt.com/">
 
   <!-- Social Sharing -->
@@ -104,15 +94,25 @@ layout: default
       outline-offset: 4px;
     }
 
-    footer {
+    .site-footer {
       margin-top: 70px;
-      font-size: 0.85rem;
-      color: #8996a3;
+      padding-top: 20px;
+      border-top: 1px solid #343b42;
+      text-align: center;
+      color: #929ba5;
+      font-size: 0.75rem;
+      line-height: 1.6;
     }
 
-    footer p {
-      font-size: 0.85rem;
-      color: #8996a3;
+    .site-footer p {
+      font-size: 0.75rem;
+      color: #929ba5;
+      margin-bottom: 12px;
+    }
+
+    .site-footer .copyright {
+      color: #737e89;
+      font-size: 0.7rem;
     }
 
     @media (max-width: 480px) {
@@ -124,7 +124,7 @@ layout: default
         font-size: 1rem;
       }
 
-      footer {
+      .site-footer {
         margin-top: 50px;
       }
     }
@@ -132,7 +132,6 @@ layout: default
 </head>
 
 <body>
-
   <main>
 
     <h1>Colorado Climbing FKTs</h1>
@@ -151,34 +150,20 @@ layout: default
     <p>
       Classic routes including the Naked Edge, Casual Route and Yellow Spur.
     </p>
-    
+
     <div class="coming-soon">
       COMING SOON
     </div>
 
-    <footer>
+    <p style="margin-top: 40px;">
+      Questions or submissions?
+      <a href="mailto:contact@climbingfkt.com">
+        contact@climbingfkt.com
+      </a>
+    </p>
 
-      <p>
-        Questions or submissions?<br>
-        <a href="mailto:contact@climbingfkt.com">
-          contact@climbingfkt.com
-        </a>
-      </p>
-
-      <p>
-        &copy; <span id="year">2026</span>
-        Colorado Climbing FKTs. All rights reserved.
-      </p>
-
-    </footer>
+    {% include footer.html %}
 
   </main>
-
-  <!-- Automatically Update Copyright Year -->
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-
 </body>
 </html>
