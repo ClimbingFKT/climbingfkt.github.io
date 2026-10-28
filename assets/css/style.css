@@ -1,24 +1,23 @@
 
-/* =========================================
-   Climbing FKT — Dark Theme
-   ========================================= */
+/* ==========================================
+   Colorado Climbing FKTs
+   Main Stylesheet
+   ========================================== */
 
+/* Theme Colors */
 :root {
   color-scheme: dark;
 
-  --primary: #e8edf2;
-  --accent: #58a6ff;
-  --background: #0d1117;
-  --surface: #161b22;
-  --header: #010409;
-  --text: #e6edf3;
-  --muted: #919ba7;
-  --border: #30363d;
-  --max-width: 1100px;
+  --bg: #12161c;
+  --surface: #1e232b;
+  --surface-hover: #303846;
+  --text: #e5e7eb;
+  --text-muted: #a6adb8;
+  --accent: #78b7e8;
+  --border: #38404b;
 }
 
-/* Base */
-
+/* Global Reset */
 * {
   box-sizing: border-box;
 }
@@ -29,12 +28,48 @@ html {
 
 body {
   margin: 0;
-  background: var(--background);
+  background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
+               BlinkMacSystemFont, "Segoe UI",
+               sans-serif;
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.7;
+}
+
+/* General Layout */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.site-content {
+  min-height: 65vh;
+  padding: 3rem 0;
+}
+
+/* Typography */
+h1, h2, h3 {
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1.25rem;
 }
 
 a {
@@ -46,183 +81,385 @@ a:hover {
   text-decoration: underline;
 }
 
-a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-h1, h2, h3 {
-  color: var(--primary);
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* Header */
+/* ==========================================
+   Header & Navigation
+   ========================================== */
 
 .site-header {
-  background: var(--header);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 1rem max(1.25rem,
-    calc((100% - var(--max-width)) / 2));
+  padding: 1rem 0;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .site-title {
-  display: block;
-  color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
+  color: #ffffff;
+  white-space: nowrap;
 }
 
-.site-header nav {
+.site-title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.site-header nav a {
+.site-nav > a {
   color: var(--text);
-  font-size: 0.95rem;
+  font-weight: 500;
 }
 
-.site-header nav a:hover {
+.site-nav > a:hover {
   color: var(--accent);
 }
 
-/* Main Content */
+/* ==========================================
+   Climbing Areas Dropdown
+   ========================================== */
 
-main {
-  max-width: var(--max-width);
-  min-height: 65vh;
-  margin: 0 auto;
-  padding: 2.5rem 1.25rem;
+.dropdown {
+  position: relative;
 }
 
-section {
-  margin-bottom: 2rem;
+.dropbtn {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0;
 }
 
-/* FKT Records */
-
-.fkt-record header {
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+.dropbtn:hover,
+.dropbtn:focus-visible {
+  color: var(--accent);
 }
 
-.fkt-record header p {
-  color: var(--muted);
-}
-
-.fkt-record dl {
-  display: grid;
-  grid-template-columns: minmax(110px, 160px) 1fr;
-  gap: 0.75rem 1rem;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover,
+.dropdown-content a:focus-visible {
+  background: var(--surface-hover);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Desktop Hover */
+@media (hover: hover) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* Keyboard and Mobile Click */
+.dropdown:focus-within .dropdown-content,
+.dropdown-content.open {
+  display: block;
+}
+
+/* ==========================================
+   Sections & Cards
+   ========================================== */
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-.fkt-record dt {
-  font-weight: 600;
-  color: var(--muted);
+.card h2,
+.card h3 {
+  margin-top: 0;
 }
 
-.fkt-record dd {
+.card:hover {
+  border-color: var(--accent);
+}
+
+/* Regional Links */
+.region-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.region-card {
+  display: block;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  transition: border-color 0.2s,
+              transform 0.2s;
+}
+
+.region-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.region-card h2,
+.region-card h3 {
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.region-card p {
+  color: var(--text-muted);
   margin: 0;
-  overflow-wrap: anywhere;
 }
 
-/* Tables */
+/* ==========================================
+   FKT Record Tables
+   ========================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  font-size: 0.95rem;
 }
 
 th, td {
-  padding: 0.75rem;
+  padding: 0.85rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
 }
 
 th {
   background: var(--surface);
+  color: #ffffff;
   font-weight: 600;
 }
 
-/* Images */
+tbody tr:hover {
+  background: var(--surface);
+}
+
+td a {
+  font-weight: 500;
+}
+
+/* ==========================================
+   Forms
+   ========================================== */
+
+form {
+  max-width: 700px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+button,
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  background: var(--accent);
+  color: #12161c;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  filter: brightness(1.1);
+  text-decoration: none;
+}
+
+/* Preserve Dropdown Button Style */
+.dropbtn {
+  background: transparent;
+  color: var(--text);
+  padding: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* ==========================================
+   Images
+   ========================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 figure {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 figcaption {
-  color: var(--muted);
-  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
   margin-top: 0.5rem;
 }
 
-/* Footer */
+/* ==========================================
+   Footer
+   ========================================== */
 
 .site-footer {
-  background: var(--header);
+  background: var(--surface);
   border-top: 1px solid var(--border);
+  padding: 2rem 0;
   text-align: center;
-  padding: 2rem 1.25rem;
-  color: var(--muted);
-  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .site-footer p {
-  margin: 0.5rem 0;
+  margin-bottom: 0.5rem;
 }
 
-/* Mobile */
+.site-footer a {
+  color: var(--text-muted);
+}
 
-@media (max-width: 600px) {
-  main {
-    padding: 1.5rem 1rem;
+.site-footer a:hover {
+  color: var(--accent);
+}
+
+/* ==========================================
+   Mobile Responsive
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  .site-header .container {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .site-header {
-    padding: 1rem;
+  .site-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
   }
 
-  .site-header nav {
-    gap: 0.5rem 1rem;
+  .dropdown-content {
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 230px;
   }
 
-  .site-header nav a {
-    font-size: 0.875rem;
+  .site-content {
+    padding: 2rem 0;
   }
 
-  .fkt-record dl {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  th, td {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .region-grid {
     grid-template-columns: 1fr;
-    gap: 0.25rem;
   }
 
-  .fkt-record dd {
-    margin-bottom: 0.75rem;
+  .card {
+    padding: 1.25rem;
+  }
+}
+
+/* ==========================================
+   Accessibility
+   ========================================== */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  table {
-    display: block;
-    overflow-x: auto;
+  .region-card {
+    transition: none;
   }
 }
