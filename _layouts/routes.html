@@ -1,0 +1,95 @@
+
+---
+layout: default
+---
+
+<article class="route-page">
+
+  <header class="route-header">
+    <h1>{{ page.title }}</h1>
+
+    {% if page.location %}
+      <p class="route-location">{{ page.location }}</p>
+    {% endif %}
+  </header>
+
+  <section class="route-details">
+    <h2>Route Information</h2>
+
+    {% if page.grade %}
+      <p><strong>Grade:</strong> {{ page.grade }}</p>
+    {% endif %}
+
+    {% if page.pitches %}
+      <p><strong>Pitches:</strong> {{ page.pitches }}</p>
+    {% endif %}
+
+    {% if page.start %}
+      <p><strong>Start:</strong> {{ page.start }}</p>
+    {% endif %}
+
+    {% if page.finish %}
+      <p><strong>Finish:</strong> {{ page.finish }}</p>
+    {% endif %}
+  </section>
+
+  <section class="route-records">
+    <h2>Verified Records</h2>
+
+    {% if page.records and page.records.size > 0 %}
+      {% for record in page.records %}
+        <div class="record">
+
+          <h3>{{ record.category }}</h3>
+
+          <p>
+            <strong>Athlete:</strong>
+            {{ record.athlete }}
+          </p>
+
+          <p>
+            <strong>Time:</strong>
+            {{ record.time }}
+          </p>
+
+          <p>
+            <strong>Date:</strong>
+            {{ record.date | date: "%B %-d, %Y" }}
+          </p>
+
+          <p>
+            <strong>Style:</strong>
+            {{ record.style }}
+          </p>
+
+          {% if record.verification %}
+            <p>
+              <a href="{{ record.verification }}">
+                View Verification
+              </a>
+            </p>
+          {% endif %}
+
+          {% if record.trip_report %}
+            <p>
+              <a href="{{ record.trip_report }}">
+                Read Trip Report
+              </a>
+            </p>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No verified records published yet.</p>
+    {% endif %}
+  </section>
+
+  {% if content != "" %}
+    <section class="route-history">
+      <h2>Route History</h2>
+      {{ content }}
+    </section>
+  {% endif %}
+
+</article>
