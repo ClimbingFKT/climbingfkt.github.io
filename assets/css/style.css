@@ -585,3 +585,20 @@ figcaption {
   color: var(--text);
 }
 
+
+
+
+/* Append to your existing style.css */
+.region-page{max-width:1050px;margin:0 auto;padding:56px 24px 90px;color:#e9e9e9}
+.region-header{max-width:740px}.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#9b9b9b}
+.region-header h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.1;margin:14px 0 18px}
+.region-intro{color:#aaa;line-height:1.7;font-size:1.05rem}
+.region-photo-placeholder{height:clamp(160px,28vw,300px);margin:38px 0 48px;border:1px solid #292929;background:#151515}
+.region-photo img{display:block;width:100%;max-height:420px;object-fit:cover}
+.region-page h2{font-size:1.35rem;margin-bottom:20px}.records-table-wrap{overflow-x:auto}
+.records-table{width:100%;border-collapse:collapse;text-align:left;min-width:600px}
+.records-table th{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#aaa;font-weight:600}
+.records-table th,.records-table td{padding:16px 14px;border-bottom:1px solid #303030}
+.records-table th:first-child,.records-table td:first-child{padding-left:0}
+.empty-records{color:#999;text-align:center;padding:38px 14px!important}
+.region-submit{margin-top:28px;color:#aaa}.region-page a{color:#e9e9e9;text-underline-offset:4px}
