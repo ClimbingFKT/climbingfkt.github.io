@@ -562,3 +562,26 @@ figcaption {
     transition: none;
   }
 }
+
+
+/* Footer Disclaimers */
+
+.site-disclaimer {
+  max-width: 850px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.site-disclaimer p {
+  margin-bottom: 0.75rem;
+}
+
+.site-disclaimer strong {
+  color: var(--text);
+}
+
