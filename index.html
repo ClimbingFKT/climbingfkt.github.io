@@ -1,169 +1,94 @@
 
 ---
+layout: default
+title: Colorado Climbing FKTs | Speed Climbing Records
+description: Documenting verified Colorado climbing fastest known times in Eldorado Canyon, the Flatirons, Rocky Mountain National Park, and beyond.
+permalink: /
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <title>Colorado Climbing FKTs | Speed Climbing Records</title>
+<div class="container">
 
-  <meta name="description"
-        content="Colorado climbing FKTs and speed records. Documenting verified fastest known times in Eldorado Canyon, the Flatirons, Rocky Mountain National Park, and beyond.">
-
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://climbingfkt.com/">
-
-  <!-- Social Sharing -->
-  <meta property="og:type" content="website">
-  <meta property="og:title"
-        content="Colorado Climbing FKTs | Speed Climbing Records">
-  <meta property="og:description"
-        content="Documenting Colorado's speed climbing history through verified fastest known times and historical records.">
-  <meta property="og:url" content="https://climbingfkt.com/">
-
-  <!-- Styling -->
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 24px;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #121820;
-      color: #f1f1f1;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-      line-height: 1.6;
-    }
-
-    main {
-      max-width: 650px;
-      width: 100%;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 6vw, 3rem);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      color: #aab8c5;
-      margin-bottom: 35px;
-    }
-
-    p {
-      font-size: 1.05rem;
-      color: #d0d7de;
-    }
-
-    .coming-soon {
-      margin-top: 40px;
-      font-size: 1.4rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #7fb3d5;
-    }
-
-    a {
-      color: #7fb3d5;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    a:focus-visible {
-      outline: 2px solid #7fb3d5;
-      outline-offset: 4px;
-    }
-
-    .site-footer {
-      margin-top: 70px;
-      padding-top: 20px;
-      border-top: 1px solid #343b42;
-      text-align: center;
-      color: #929ba5;
-      font-size: 0.75rem;
-      line-height: 1.6;
-    }
-
-    .site-footer p {
-      font-size: 0.75rem;
-      color: #929ba5;
-      margin-bottom: 12px;
-    }
-
-    .site-footer .copyright {
-      color: #737e89;
-      font-size: 0.7rem;
-    }
-
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 1.05rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .site-footer {
-        margin-top: 50px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <main>
-
+  <section class="intro">
     <h1>Colorado Climbing FKTs</h1>
 
-    <h2>Documenting Colorado's Speed Climbing History</h2>
+    <p>
+      Documenting verifiable fastest known times and
+      speed climbing records across Colorado.
+    </p>
+
+    <h2>Coming Soon</h2>
 
     <p>
-      Verified fastest known times on Colorado's classic rock climbs
+      We're building a collection of climbing speed records
+      supported by primary-source evidence, including GPS
+      tracks, athlete reports, and documented ascents.
     </p>
 
     <p>
-      Preserving climbing history through athlete submissions,
-      primary-source verification and historical records.
+      Explore the climbing areas below as records are added.
     </p>
+  </section>
 
-    <p>
-      Classic routes including the Naked Edge, Casual Route and Yellow Spur.
-    </p>
+  <section>
+    <h2>Climbing Areas</h2>
 
-    <div class="coming-soon">
-      COMING SOON
+    <div class="region-grid">
+
+      <a class="region-card"
+         href="{{ '/records/eldorado-canyon/' | relative_url }}">
+        <h3>Eldorado Canyon</h3>
+        <p>Classic routes and speed climbing records.</p>
+      </a>
+
+      <a class="region-card"
+         href="{{ '/records/flatirons/' | relative_url }}">
+        <h3>Flatirons</h3>
+        <p>Scrambles, solos, and climbing linkups.</p>
+      </a>
+
+      <a class="region-card"
+         href="{{ '/records/rmnp/' | relative_url }}">
+        <h3>Rocky Mountain National Park</h3>
+        <p>Alpine climbing routes and speed ascents.</p>
+      </a>
+
+      <a class="region-card"
+         href="{{ '/records/other-colorado/' | relative_url }}">
+        <h3>Other Colorado</h3>
+        <p>Speed climbing records throughout the state.</p>
+      </a>
+
     </div>
+  </section>
 
-    <p style="margin-top: 40px;">
-      Questions or submissions?
-      <a href="mailto:contact@climbingfkt.com">
-        contact@climbingfkt.com
+  <section>
+    <h2>Submit an FKT</h2>
+
+    <p>
+      Know of a documented climbing speed record?
+      Help preserve Colorado's climbing history.
+    </p>
+
+    <p>
+      <a href="{{ '/submit/' | relative_url }}">
+        Submit a Record
       </a>
     </p>
+  </section>
 
-    {% include footer.html %}
+  <section>
+    <h2>About This Project</h2>
 
-  </main>
-</body>
-</html>
+    <p>
+      Learn about the purpose of Colorado Climbing FKTs
+      and our approach to documenting and verifying records.
+    </p>
+
+    <p>
+      <a href="{{ '/about/' | relative_url }}">
+        Learn More
+      </a>
+    </p>
+  </section>
+
+</div>
