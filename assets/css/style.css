@@ -1,23 +1,23 @@
 
 /* ==========================================
-   Colorado Climbing FKTs
-   Main Stylesheet
+   COLORADO CLIMBING FKTs
+   Minimalist Dark Theme
    ========================================== */
 
-/* Theme Colors */
 :root {
   color-scheme: dark;
 
-  --bg: #12161c;
-  --surface: #1e232b;
-  --surface-hover: #303846;
-  --text: #e5e7eb;
-  --text-muted: #a6adb8;
-  --accent: #78b7e8;
-  --border: #38404b;
+  --bg: #0d151c;
+  --surface: #15212c;
+  --surface-hover: #1e303e;
+  --text: #f3f6fa;
+  --muted: #aebbc8;
+  --accent: #51b5fa;
+  --border: #304453;
 }
 
-/* Global Reset */
+/* GLOBAL */
+
 * {
   box-sizing: border-box;
 }
@@ -31,13 +31,11 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system,
-               BlinkMacSystemFont, "Segoe UI",
-               sans-serif;
+    "Segoe UI", sans-serif;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* General Layout */
 .container {
   width: min(1100px, 92%);
   margin: 0 auto;
@@ -45,31 +43,28 @@ body {
 
 .site-content {
   min-height: 65vh;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
-/* Typography */
 h1, h2, h3 {
-  line-height: 1.3;
-  color: #ffffff;
+  line-height: 1.2;
+  color: var(--text);
 }
 
 h1 {
-  font-size: 2.2rem;
-  margin-top: 0;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
 }
 
 h2 {
-  font-size: 1.6rem;
-  margin-top: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
 }
 
 a {
@@ -81,12 +76,31 @@ a:hover {
   text-decoration: underline;
 }
 
+.muted {
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: #c7d3df;
+}
+
+.accent-line {
+  width: 48px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
 /* ==========================================
-   Header & Navigation
+   HEADER
    ========================================== */
 
 .site-header {
-  background: var(--surface);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
 }
@@ -99,10 +113,9 @@ a:hover {
 }
 
 .site-title {
+  color: var(--text);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
 }
 
 .site-title:hover {
@@ -118,16 +131,13 @@ a:hover {
 
 .site-nav > a {
   color: var(--text);
-  font-weight: 500;
 }
 
 .site-nav > a:hover {
   color: var(--accent);
 }
 
-/* ==========================================
-   Climbing Areas Dropdown
-   ========================================== */
+/* DROPDOWN */
 
 .dropdown {
   position: relative;
@@ -135,10 +145,9 @@ a:hover {
 
 .dropbtn {
   background: transparent;
-  border: none;
   color: var(--text);
+  border: 0;
   font: inherit;
-  font-weight: 500;
   cursor: pointer;
   padding: 0.5rem 0;
 }
@@ -153,12 +162,12 @@ a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 250px;
+  min-width: 255px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   z-index: 100;
+  box-shadow: 0 10px 30px #0008;
   overflow: hidden;
 }
 
@@ -166,68 +175,114 @@ a:hover {
   display: block;
   padding: 0.75rem 1rem;
   color: var(--text);
-  white-space: nowrap;
 }
 
-.dropdown-content a:hover,
-.dropdown-content a:focus-visible {
+.dropdown-content a:hover {
   background: var(--surface-hover);
-  color: #ffffff;
   text-decoration: none;
 }
 
-/* Desktop Hover */
+.dropdown-content.open {
+  display: block;
+}
+
 @media (hover: hover) {
   .dropdown:hover .dropdown-content {
     display: block;
   }
 }
 
-/* Keyboard and Mobile Click */
-.dropdown:focus-within .dropdown-content,
-.dropdown-content.open {
+.dropdown:focus-within .dropdown-content {
   display: block;
 }
 
 /* ==========================================
-   Sections & Cards
+   HOMEPAGE HERO
    ========================================== */
 
-section {
-  margin-bottom: 2.5rem;
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 2.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.card {
-  background: var(--surface);
+.hero-copy h1 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.hero-description {
+  color: #cbd6e1;
+  font-size: 1.15rem;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+/* COMING SOON */
+
+.coming-soon {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+}
+
+/* ==========================================
+   PHOTO PLACEHOLDERS
+   ========================================== */
+
+.photo-placeholder {
+  background: linear-gradient(
+    145deg,
+    #182733,
+    #243543
+  );
   border: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #748b9c;
+}
+
+.photo-placeholder span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.hero-photo {
+  min-height: 350px;
   border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.25rem;
 }
 
-.card h2,
-.card h3 {
-  margin-top: 0;
+/* ==========================================
+   CLIMBING AREAS
+   ========================================== */
+
+.areas-section {
+  padding: 2rem 0 3rem;
 }
 
-.card:hover {
-  border-color: var(--accent);
+.areas-section h2 {
+  margin-bottom: 0.3rem;
 }
 
-/* Regional Links */
 .region-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 .region-card {
   display: block;
-  padding: 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
+  overflow: hidden;
   color: var(--text);
   transition: border-color 0.2s,
               transform 0.2s;
@@ -239,23 +294,89 @@ section {
   text-decoration: none;
 }
 
-.region-card h2,
-.region-card h3 {
-  color: var(--accent);
-  margin: 0 0 0.5rem;
+.region-photo {
+  height: 160px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
 }
 
-.region-card p {
-  color: var(--text-muted);
+.region-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.region-info h3 {
+  margin: 0 0 0.25rem;
+}
+
+.region-info p {
+  color: var(--muted);
   margin: 0;
+  font-size: 0.9rem;
+}
+
+.region-arrow {
+  color: var(--accent);
+  font-size: 1.7rem;
+  flex-shrink: 0;
 }
 
 /* ==========================================
-   FKT Record Tables
+   SUBMIT & ABOUT
    ========================================== */
 
+.home-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.home-link-panel {
+  padding-right: 1.5rem;
+}
+
+.home-link-panel + .home-link-panel {
+  border-left: 1px solid var(--border);
+  padding-left: 2.5rem;
+}
+
+.home-link-panel h2 {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+
+.home-link-panel a {
+  font-weight: 600;
+}
+
+/* ==========================================
+   GENERAL PAGES
+   ========================================== */
+
+section {
+  margin-bottom: 2rem;
+}
+
+.home-page section {
+  margin-bottom: 0;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* RECORD TABLES */
+
 .table-wrapper {
-  width: 100%;
   overflow-x: auto;
   margin: 1.5rem 0;
 }
@@ -263,7 +384,6 @@ section {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
 }
 
 th, td {
@@ -274,21 +394,14 @@ th, td {
 
 th {
   background: var(--surface);
-  color: #ffffff;
-  font-weight: 600;
+  color: var(--text);
 }
 
 tbody tr:hover {
   background: var(--surface);
 }
 
-td a {
-  font-weight: 500;
-}
-
-/* ==========================================
-   Forms
-   ========================================== */
+/* FORMS */
 
 form {
   max-width: 700px;
@@ -304,20 +417,13 @@ input,
 textarea,
 select {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.25rem;
   background: var(--surface);
+  color: var(--text);
   border: 1px solid var(--border);
   border-radius: 5px;
-  color: var(--text);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
   font: inherit;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
 }
 
 textarea {
@@ -325,36 +431,19 @@ textarea {
   resize: vertical;
 }
 
-button,
+button:not(.dropbtn),
 .button {
-  display: inline-block;
-  padding: 0.7rem 1.25rem;
   background: var(--accent);
-  color: #12161c;
-  border: none;
+  color: var(--bg);
+  border: 0;
   border-radius: 5px;
+  padding: 0.7rem 1.25rem;
+  cursor: pointer;
   font: inherit;
   font-weight: 600;
-  cursor: pointer;
 }
 
-button:hover,
-.button:hover {
-  filter: brightness(1.1);
-  text-decoration: none;
-}
-
-/* Preserve Dropdown Button Style */
-.dropbtn {
-  background: transparent;
-  color: var(--text);
-  padding: 0.5rem 0;
-  font-weight: 500;
-}
-
-/* ==========================================
-   Images
-   ========================================== */
+/* IMAGES */
 
 img {
   max-width: 100%;
@@ -366,22 +455,21 @@ figure {
 }
 
 figcaption {
-  color: var(--text-muted);
+  color: var(--muted);
   font-size: 0.9rem;
-  margin-top: 0.5rem;
 }
 
 /* ==========================================
-   Footer
+   FOOTER
    ========================================== */
 
 .site-footer {
-  background: var(--surface);
   border-top: 1px solid var(--border);
+  background: var(--bg);
   padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
 .site-footer p {
@@ -389,7 +477,7 @@ figcaption {
 }
 
 .site-footer a {
-  color: var(--text-muted);
+  color: var(--muted);
 }
 
 .site-footer a:hover {
@@ -397,7 +485,7 @@ figcaption {
 }
 
 /* ==========================================
-   Mobile Responsive
+   MOBILE
    ========================================== */
 
 @media (max-width: 768px) {
@@ -408,45 +496,56 @@ figcaption {
   }
 
   .site-nav {
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1.25rem;
   }
 
   .dropdown-content {
     left: 50%;
     transform: translateX(-50%);
-    min-width: 230px;
   }
 
-  .site-content {
-    padding: 2rem 0;
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 1rem;
   }
 
-  h1 {
-    font-size: 1.8rem;
+  .hero-photo {
+    min-height: 220px;
   }
 
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  th, td {
-    padding: 0.65rem;
-    font-size: 0.85rem;
+  .coming-soon {
+    font-size: 1.75rem;
   }
 
   .region-grid {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    padding: 1.25rem;
+  .region-photo {
+    height: 170px;
+  }
+
+  .home-links {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-link-panel + .home-link-panel {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0 0;
+  }
+
+  .site-content {
+    padding: 1.5rem 0;
   }
 }
 
 /* ==========================================
-   Accessibility
+   ACCESSIBILITY
    ========================================== */
 
 :focus-visible {
