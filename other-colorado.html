@@ -1,71 +1,164 @@
 ---
 layout: default
-title: Other Colorado FKTs
-description: Verified climbing fastest known times and speed records throughout Colorado, including Lumpy Ridge, Black Canyon, South Platte, and Boulder Canyon.
+title: Other Colorado Climbing FKTs
+description: Verified climbing fastest known times and speed records throughout Colorado, including Lumpy Ridge, Boulder Canyon, South Platte, and Black Canyon.
 permalink: /other-colorado/
 ---
 
 <section class="region-page">
+
+  <!-- REGION HEADER -->
 
   <header class="region-header">
     <h1>Other Colorado</h1>
     <p>
       Verified fastest known times and speed climbing records
       throughout Colorado beyond Eldorado Canyon,
-      Rocky Mountain National Park, and the Flatirons.
+      the Flatirons, and Rocky Mountain National Park.
     </p>
   </header>
 
-  <div class="region-photo">
-    <!-- Future Colorado climbing photograph -->
-  </div>
+
+  <!-- REGION PHOTOGRAPH -->
+
+  <figure class="region-photo">
+
+    <img
+      src="{{ '/assets/images/other-colorado.jpg' | relative_url }}"
+      alt="Rock climbing terrain in Colorado"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Photo: Photographer Name
+    </figcaption>
+
+  </figure>
+
+
+  <!-- CURRENT RECORDS -->
 
   <section class="region-records">
-    <h2>Climbing Records</h2>
+
+    <h2>Current Climbing Records</h2>
+
     <p>
-      Documenting speed ascents across Colorado's
-      climbing areas, including Lumpy Ridge,
-      Black Canyon, South Platte, and Boulder Canyon.
+      Documenting the fastest verified ascents
+      across Colorado's other climbing areas,
+      including Lumpy Ridge, Boulder Canyon,
+      South Platte, and Black Canyon.
     </p>
 
+
+    <!-- FIND OTHER COLORADO ROUTES -->
+
+    {% assign colorado_routes = site.routes
+      | where: "region", "Other Colorado"
+      | sort: "title" %}
+
+    {% assign record_count = 0 %}
+
+
+    <!-- RECORDS TABLE -->
+
     <div class="table-scroll">
+
       <table class="records-table">
+
         <thead>
           <tr>
             <th>Route</th>
-            <th>Climber(s)</th>
+            <th>Climbing Area</th>
+            <th>Athlete(s)</th>
             <th>Time</th>
+            <th>Style</th>
             <th>Date</th>
           </tr>
         </thead>
 
         <tbody>
-          {% assign records = site.records
-            | where: "region", "other-colorado"
-            | where: "current", true
-            | sort: "route" %}
 
-          {% for record in records %}
-          <tr>
-            <td>
-              <a href="{{ record.url | relative_url }}">
-                {{ record.route }}
-              </a>
-            </td>
-            <td>{{ record.climbers }}</td>
-            <td>{{ record.time }}</td>
-            <td>{{ record.date | date: "%Y-%m-%d" }}</td>
-          </tr>
-          {% else %}
-          <tr>
-            <td colspan="4">
-              Records coming soon.
-            </td>
-          </tr>
+          {% for route in colorado_routes %}
+
+            {% if route.records %}
+
+              {% for record in route.records %}
+
+                {% if record.status == "Current FKT" %}
+
+                  <tr>
+
+                    <!-- ROUTE -->
+
+                    <td>
+                      <a href="{{ route.url | relative_url }}">
+                        {{ route.title }}
+                      </a>
+                    </td>
+
+                    <!-- CLIMBING AREA -->
+
+                    <td>
+                      {{ route.location }}
+                    </td>
+
+                    <!-- ATHLETE -->
+
+                    <td>
+                      {{ record.athlete }}
+                    </td>
+
+                    <!-- TIME -->
+
+                    <td>
+                      {{ record.time }}
+                    </td>
+
+                    <!-- STYLE -->
+
+                    <td>
+                      {{ record.style }}
+                    </td>
+
+                    <!-- DATE -->
+
+                    <td>
+                      {% if record.date %}
+                        {{ record.date | date: "%b %-d, %Y" }}
+                      {% endif %}
+                    </td>
+
+                  </tr>
+
+                  {% assign record_count = record_count | plus: 1 %}
+
+                {% endif %}
+
+              {% endfor %}
+
+            {% endif %}
+
           {% endfor %}
+
+
+          <!-- EMPTY STATE -->
+
+          {% if record_count == 0 %}
+
+            <tr>
+              <td colspan="6" class="empty-records">
+                Verified records coming soon.
+              </td>
+            </tr>
+
+          {% endif %}
+
         </tbody>
+
       </table>
+
     </div>
+
   </section>
 
 </section>
