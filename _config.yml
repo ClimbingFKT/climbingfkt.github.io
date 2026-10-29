@@ -30,3 +30,9 @@ defaults:
     values:
       layout: default
 
+
+# Route Collection
+collections:
+  routes:
+    output: true
+    permalink: /fkts/:path/
