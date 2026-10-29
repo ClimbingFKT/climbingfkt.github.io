@@ -1,4 +1,3 @@
-# climbingfkt.github.io
 Colorado Climbing Fastest Known Times
 
 Website: https://climbingfkt.com
@@ -15,6 +14,65 @@ Coverage
 - Flatirons
 - Rocky Mountain National Park
 - Other Colorado climbing areas
+
+Repository Structure
+
+/
+├── _includes/                  # Reusable Jekyll components
+│
+├── _layouts/
+│   ├── default.html            # Shared website layout
+│   └── route.html              # Individual route layout
+│
+├── _routes/                    # Individual climbing route records
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css           # Global dark theme
+│   │
+│   ├── images/
+│   │   ├── eldo/
+│   │   ├── rmnp/
+│   │   ├── flatirons/
+│   │   └── other-colorado/
+│   │
+│   └── gps/
+│       ├── eldo/
+│       ├── rmnp/
+│       ├── flatirons/
+│       └── other-colorado/
+│
+├── CNAME                       # Custom domain
+├── README.md                   # Project documentation
+├── _config.yml                 # Jekyll configuration
+│
+├── index.html                  # Homepage
+├── eldo.html                   # Eldorado Canyon FKTs
+├── flatirons.html              # Flatirons FKTs
+├── rmnp.html                   # RMNP FKTs
+├── other-colorado.html         # Other Colorado FKTs
+├── about.html                  # About the project
+├── submit.html                 # Submission instructions
+│
+├── robots.txt                  # Search engine crawling
+└── sitemap.xml                 # Search engine indexing
+
+Record Organization
+
+Regional Pages
+
+Display current FKTs for each climbing route, linking to individual route pages for additional details.
+
+Individual Route Pages
+
+Document current and historical FKTs, including:
+
+- Route name, location, and climbing grade
+- Athlete names and record dates
+- Elapsed times and climbing styles
+- Defined start and finish points
+- Historical record progression
+- Verification evidence and original sources
 
 Verification Standards
 
@@ -38,14 +96,14 @@ Project Principles
 
 Technology
 
-- GitHub Pages
-- Jekyll
-- Markdown, HTML, and CSS
-- Custom domain via Cloudflare
+- GitHub Pages — Website hosting
+- Jekyll — Static site generator
+- Markdown, HTML, and CSS — Website content and styling
+- Cloudflare — Custom domain and DNS management
 
 Contact
 
-contact@climbingfkt.com
+"contact@climbingfkt.com" (mailto:contact@climbingfkt.com)
 
 Copyright
 
