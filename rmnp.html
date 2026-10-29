@@ -6,6 +6,9 @@ permalink: /rmnp/
 ---
 
 <section class="region-page">
+
+  <!-- REGION HEADER -->
+
   <header class="region-header">
     <h1>Rocky Mountain National Park</h1>
     <p>
@@ -14,19 +17,52 @@ permalink: /rmnp/
     </p>
   </header>
 
-  <div class="region-photo">
-    <!-- Future RMNP photograph -->
-  </div>
+
+  <!-- REGION PHOTOGRAPH -->
+
+  <figure class="region-photo">
+
+    <img
+      src="{{ '/assets/images/rmnp.jpg' | relative_url }}"
+      alt="Rocky Mountain National Park alpine climbing terrain in Colorado"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Photo: Photographer Name
+    </figcaption>
+
+  </figure>
+
+
+  <!-- CURRENT RECORDS -->
 
   <section class="region-records">
-    <h2>Climbing Records</h2>
+
+    <h2>Current Climbing Records</h2>
+
     <p>
-      Documenting speed ascents of alpine rock routes,
-      technical summits, and climbing linkups.
+      Documenting the fastest verified ascents of
+      Rocky Mountain National Park's classic alpine
+      climbing routes.
     </p>
 
+
+    <!-- FIND RMNP ROUTES -->
+
+    {% assign rmnp_routes = site.routes
+      | where: "location", "Rocky Mountain National Park"
+      | sort: "title" %}
+
+    {% assign record_count = 0 %}
+
+
+    <!-- RECORDS TABLE -->
+
     <div class="table-scroll">
+
       <table class="records-table">
+
         <thead>
           <tr>
             <th>Route</th>
@@ -36,14 +72,84 @@ permalink: /rmnp/
             <th>Date</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td colspan="5" class="empty-records">
-              Verified records coming soon.
-            </td>
-          </tr>
+
+          {% for route in rmnp_routes %}
+
+            {% if route.records %}
+
+              {% for record in route.records %}
+
+                {% if record.status == "Current FKT" %}
+
+                  <tr>
+
+                    <!-- ROUTE -->
+
+                    <td>
+                      <a href="{{ route.url | relative_url }}">
+                        {{ route.title }}
+                      </a>
+                    </td>
+
+                    <!-- ATHLETE -->
+
+                    <td>
+                      {{ record.athlete }}
+                    </td>
+
+                    <!-- TIME -->
+
+                    <td>
+                      {{ record.time }}
+                    </td>
+
+                    <!-- STYLE -->
+
+                    <td>
+                      {{ record.style }}
+                    </td>
+
+                    <!-- DATE -->
+
+                    <td>
+                      {% if record.date %}
+                        {{ record.date | date: "%b %-d, %Y" }}
+                      {% endif %}
+                    </td>
+
+                  </tr>
+
+                  {% assign record_count = record_count | plus: 1 %}
+
+                {% endif %}
+
+              {% endfor %}
+
+            {% endif %}
+
+          {% endfor %}
+
+
+          <!-- EMPTY STATE -->
+
+          {% if record_count == 0 %}
+
+            <tr>
+              <td colspan="5" class="empty-records">
+                Verified records coming soon.
+              </td>
+            </tr>
+
+          {% endif %}
+
         </tbody>
+
       </table>
+
     </div>
+
   </section>
+
 </section>
