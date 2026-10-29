@@ -16,7 +16,9 @@
   --border: #304453;
 }
 
-/* GLOBAL */
+/* ==========================================
+   GLOBAL
+   ========================================== */
 
 * {
   box-sizing: border-box;
@@ -137,7 +139,9 @@ a:hover {
   color: var(--accent);
 }
 
-/* DROPDOWN */
+/* ==========================================
+   DROPDOWN NAVIGATION
+   ========================================== */
 
 .dropdown {
   position: relative;
@@ -259,7 +263,7 @@ a:hover {
 }
 
 /* ==========================================
-   CLIMBING AREAS
+   CLIMBING AREAS — HOMEPAGE
    ========================================== */
 
 .areas-section {
@@ -294,10 +298,16 @@ a:hover {
   text-decoration: none;
 }
 
-.region-photo {
+/* Homepage region photos */
+
+.region-card .region-photo {
+  width: 100%;
   height: 160px;
+  aspect-ratio: auto;
+  margin: 0;
   border: 0;
   border-bottom: 1px solid var(--border);
+  border-radius: 0;
 }
 
 .region-info {
@@ -325,7 +335,7 @@ a:hover {
 }
 
 /* ==========================================
-   SUBMIT & ABOUT
+   SUBMIT & ABOUT HOMEPAGE LINKS
    ========================================== */
 
 .home-links {
@@ -374,7 +384,9 @@ section {
   margin-bottom: 1.25rem;
 }
 
-/* RECORD TABLES */
+/* ==========================================
+   GENERAL RECORD TABLES
+   ========================================== */
 
 .table-wrapper {
   overflow-x: auto;
@@ -401,7 +413,9 @@ tbody tr:hover {
   background: var(--surface);
 }
 
-/* FORMS */
+/* ==========================================
+   FORMS
+   ========================================== */
 
 form {
   max-width: 700px;
@@ -443,7 +457,9 @@ button:not(.dropbtn),
   font-weight: 600;
 }
 
-/* IMAGES */
+/* ==========================================
+   IMAGES
+   ========================================== */
 
 img {
   max-width: 100%;
@@ -460,32 +476,228 @@ figcaption {
 }
 
 /* ==========================================
-   FOOTER
+   REGION PAGES
    ========================================== */
 
-.site-footer {
-  border-top: 1px solid var(--border);
-  background: var(--bg);
-  padding: 2rem 0;
+.region-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.region-header {
+  margin-bottom: 32px;
+}
+
+.region-header h1 {
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.region-header p {
   color: var(--muted);
-  font-size: 0.85rem;
-  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0;
 }
 
-.site-footer p {
-  margin-bottom: 0.5rem;
+/* Region page photo space */
+
+.region-page .region-photo {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  height: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 56px;
+  overflow: hidden;
 }
 
-.site-footer a {
+.region-page .region-photo img,
+.region-card .region-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Region records */
+
+.region-records h2 {
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.region-records > p {
   color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0 0 28px;
 }
 
-.site-footer a:hover {
+/* Region record tables */
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.records-table th {
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.records-table td {
+  color: var(--text);
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.records-table tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+.records-table a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.records-table a:hover {
   color: var(--accent);
+  text-decoration: underline;
+}
+
+.records-table .empty-records {
+  color: var(--muted);
+  text-align: center;
+  padding: 36px 16px;
 }
 
 /* ==========================================
-   MOBILE
+   FOOTER — CLEAN DARK DESIGN
+   ========================================== */
+
+.site-footer {
+  margin-top: 40px;
+  padding: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+/* Environmental and Safety Notices */
+
+.footer-notices {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.footer-notice {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 0;
+  text-align: left;
+}
+
+.footer-notice + .footer-notice {
+  border-top: 1px solid var(--border);
+}
+
+/* Leaf and Mountain Icons */
+
+.footer-notice svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #aabbd0;
+  stroke-width: 1.5;
+}
+
+.footer-notice > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Notice Headings */
+
+.footer-notice h3 {
+  margin: 0 0 5px;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Notice Descriptions */
+
+.footer-notice p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   COPYRIGHT AND FOOTER NAVIGATION
+   ========================================== */
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 26px 20px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.footer-bottom p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.footer-bottom nav {
+  margin-top: 14px;
+}
+
+.footer-bottom a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0 8px;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ==========================================
+   MOBILE LAYOUT
    ========================================== */
 
 @media (max-width: 768px) {
@@ -524,7 +736,7 @@ figcaption {
     grid-template-columns: 1fr;
   }
 
-  .region-photo {
+  .region-card .region-photo {
     height: 170px;
   }
 
@@ -545,173 +757,16 @@ figcaption {
 }
 
 /* ==========================================
-   ACCESSIBILITY
+   MOBILE REGION PAGES
    ========================================== */
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .region-card {
-    transition: none;
-  }
-}
-
-
-/* Footer Disclaimers */
-
-.site-disclaimer {
-  max-width: 850px;
-  margin: 2rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  text-align: left;
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.site-disclaimer p {
-  margin-bottom: 0.75rem;
-}
-
-.site-disclaimer strong {
-  color: var(--text);
-}
-
-
-
-
-/* ==========================================
-   REGION PAGES
-   ========================================== */
-
-.region-page {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 24px 80px;
-}
-
-/* Header */
-
-.region-header {
-  margin-bottom: 32px;
-}
-
-.region-header h1 {
-  color: #f5f5f5;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  margin: 0 0 16px;
-}
-
-.region-header p {
-  color: #a3a3a3;
-  font-size: 1rem;
-  line-height: 1.7;
-  max-width: 700px;
-  margin: 0;
-}
-
-/* Reserved photo space */
-
-.region-photo {
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  background: #181818;
-  border: 1px solid #292929;
-  border-radius: 4px;
-  margin-bottom: 56px;
-  overflow: hidden;
-}
-
-.region-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Records */
-
-.region-records h2 {
-  color: #f5f5f5;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 0 12px;
-}
-
-.region-records > p {
-  color: #a3a3a3;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0 0 28px;
-}
-
-/* Table */
-
-.table-scroll {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.records-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.9rem;
-}
-
-.records-table th {
-  color: #a3a3a3;
-  font-weight: 600;
-  padding: 14px 16px;
-  border-bottom: 1px solid #444;
-  white-space: nowrap;
-}
-
-.records-table td {
-  color: #e5e5e5;
-  padding: 18px 16px;
-  border-bottom: 1px solid #292929;
-}
-
-.records-table tbody tr:hover {
-  background: #1a1a1a;
-}
-
-.records-table a {
-  color: #f5f5f5;
-  text-decoration: none;
-}
-
-.records-table a:hover {
-  text-decoration: underline;
-}
-
-.records-table .empty-records {
-  color: #888;
-  text-align: center;
-  padding: 36px 16px;
-}
-
-/* Mobile */
 
 @media (max-width: 640px) {
+
   .region-page {
     padding: 32px 16px 56px;
   }
 
-  .region-photo {
+  .region-page .region-photo {
     aspect-ratio: 16 / 9;
     margin-bottom: 40px;
   }
@@ -726,143 +781,69 @@ figcaption {
   }
 }
 
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-.site-footer {
-  margin-top: 60px;
-  background: #101820;
-  border-top: 1px solid #303b46;
-  color: #aab5c3;
-}
-
-/* Environmental and Safety Notices */
-
-.footer-notices {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 24px;
-}
-
-.footer-notice {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px 0;
-}
-
-.footer-notice + .footer-notice {
-  border-top: 1px solid #303b46;
-}
-
-/* Leaf and Mountain Icons */
-
-.footer-notice svg {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  color: #aabbd0;
-  stroke-width: 1.5;
-}
-
-/* Notice Headings */
-
-.footer-notice h3 {
-  color: #f1f5f9;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 6px;
-}
-
-/* Notice Descriptions */
-
-.footer-notice p {
-  color: #aab5c3;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* =========================================
-   COPYRIGHT AND FOOTER NAVIGATION
-   ========================================= */
-
-.footer-bottom {
-  border-top: 1px solid #303b46;
-  text-align: center;
-  padding: 28px 20px;
-  font-size: 0.85rem;
-}
-
-.footer-bottom p {
-  color: #8d9baa;
-  margin: 0 0 10px;
-  line-height: 1.6;
-}
-
-.footer-bottom nav {
-  margin-top: 16px;
-}
-
-.footer-bottom a {
-  color: #aabbd0;
-  text-decoration: none;
-  padding: 0 8px;
-  transition: color 0.2s ease;
-}
-
-.footer-bottom a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* =========================================
+/* ==========================================
    MOBILE FOOTER
-   ========================================= */
+   ========================================== */
 
 @media (max-width: 600px) {
 
   .site-footer {
-    margin-top: 40px;
+    margin-top: 32px;
   }
 
   .footer-notices {
-    padding: 16px 20px;
+    padding: 12px 20px;
   }
 
   .footer-notice {
-    display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
     text-align: left;
-    gap: 14px;
-    padding: 18px 0;
   }
 
   .footer-notice svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   .footer-notice h3 {
-    font-size: 0.95rem;
-    margin-bottom: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
   }
 
   .footer-notice p {
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.55;
   }
 
   .footer-bottom {
-    padding: 24px 16px;
+    padding: 22px 16px;
   }
 
   .footer-bottom nav {
-    margin-top: 14px;
+    margin-top: 12px;
   }
-
 }
 
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .region-card,
+  .footer-bottom a {
+    transition: none;
+  }
+}
