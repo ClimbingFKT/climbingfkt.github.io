@@ -1,17 +1,18 @@
 ---
 layout: default
-title: Other Colorado Climbing FKTs
-description: Verified climbing fastest known times across Colorado, including Lumpy Ridge, Black Canyon, South Platte, and Boulder Canyon.
+title: Other Colorado FKTs
+description: Verified climbing fastest known times and speed records throughout Colorado, including Lumpy Ridge, Black Canyon, South Platte, and Boulder Canyon.
 permalink: /other-colorado/
 ---
 
 <section class="region-page">
+
   <header class="region-header">
     <h1>Other Colorado</h1>
     <p>
       Verified fastest known times and speed climbing records
       throughout Colorado beyond Eldorado Canyon,
-      the Flatirons, and Rocky Mountain National Park.
+      Rocky Mountain National Park, and the Flatirons.
     </p>
   </header>
 
@@ -22,9 +23,9 @@ permalink: /other-colorado/
   <section class="region-records">
     <h2>Climbing Records</h2>
     <p>
-      Including Lumpy Ridge, Black Canyon of the Gunnison,
-      South Platte, Boulder Canyon, and other Colorado
-      climbing areas.
+      Documenting speed ascents across Colorado's
+      climbing areas, including Lumpy Ridge,
+      Black Canyon, South Platte, and Boulder Canyon.
     </p>
 
     <div class="table-scroll">
@@ -32,20 +33,39 @@ permalink: /other-colorado/
         <thead>
           <tr>
             <th>Route</th>
-            <th>Athlete(s)</th>
+            <th>Climber(s)</th>
             <th>Time</th>
-            <th>Style</th>
             <th>Date</th>
           </tr>
         </thead>
+
         <tbody>
+          {% assign records = site.records
+            | where: "region", "other-colorado"
+            | where: "current", true
+            | sort: "route" %}
+
+          {% for record in records %}
           <tr>
-            <td colspan="5" class="empty-records">
-              Verified records coming soon.
+            <td>
+              <a href="{{ record.url | relative_url }}">
+                {{ record.route }}
+              </a>
+            </td>
+            <td>{{ record.climbers }}</td>
+            <td>{{ record.time }}</td>
+            <td>{{ record.date | date: "%Y-%m-%d" }}</td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="4">
+              Records coming soon.
             </td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
   </section>
+
 </section>
