@@ -1,0 +1,50 @@
+---
+layout: route
+title: "Freezeway"
+location: "Flatirons"
+permalink: /fkts/flatirons/freezeway/
+grade: "5.7"
+pitches: 7
+start: "Chautauqua TH by Ranger hut"
+finish: "Chautauqua TH by Ranger hut"
+
+image: "/assets/images/flatirons.jpg"
+image_alt: "Freezeway on the Second Flatiron"
+image_caption: "Flatirons 1, 2, 3"
+image_credit: "Harvest Mondello"
+
+records:
+  - category: "Solo"
+    status: "Current FKT"
+    athlete: "Soren Kodak"
+    time: "00:32:14"
+    date: 2024-07-05
+    style: "Free solo"
+    notes: "Record details."
+
+    primary sources:
+
+      - gpx: "/assets/flatirons/gps/second-fkatiron-fkt-sk.gpx"
+      - [Soren Kodak Trip Report](https://fastestknowntime.com/fkt/soren-kodak-second-flatiron-boulder-co-2024-07-05)
+      
+    secondary sources:
+      - title: "Published Article"
+        url: "https://example.com/"
+
+  - category: "Solo"
+    status: "Historical FKT"
+    athlete: "Previous Athlete"
+    time: "00:xx:xx"
+    date: xxxx-xx-xx
+    style: "Free solo"
+
+    sources:
+      - title: "Trip Report"
+        url: "https://example.com/"
+
+---
+
+Freezeway on the Second Flatiron has a recent history of speed climbing.
+
+Additional historical information and context
+can be documented here.
