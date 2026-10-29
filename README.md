@@ -1,22 +1,24 @@
-Colorado Climbing Fastest Known Times
 
-Website: https://climbingfkt.com
+# Colorado Climbing Fastest Known Times
+
+**Website:** https://climbingfkt.com
 
 An independent archive documenting verified fastest known times (FKTs) on technical rock climbing routes in Colorado.
 
-Purpose
+## Purpose
 
 Preserve the history of Colorado speed climbing by providing a centralized, searchable, and transparent record of climbing FKTs.
 
-Coverage
+## Coverage
 
 - Eldorado Canyon
 - Flatirons
 - Rocky Mountain National Park
 - Other Colorado climbing areas
 
-Repository Structure
+## Repository Structure
 
+```text
 /
 ├── _includes/                  # Reusable Jekyll components
 │
@@ -56,14 +58,15 @@ Repository Structure
 │
 ├── robots.txt                  # Search engine crawling
 └── sitemap.xml                 # Search engine indexing
+```
 
-Record Organization
+## Record Organization
 
-Regional Pages
+### Regional Pages
 
 Display current FKTs for each climbing route, linking to individual route pages for additional details.
 
-Individual Route Pages
+### Individual Route Pages
 
 Document current and historical FKTs, including:
 
@@ -74,7 +77,7 @@ Document current and historical FKTs, including:
 - Historical record progression
 - Verification evidence and original sources
 
-Verification Standards
+## Verification Standards
 
 FKT submissions should include verifiable primary-source evidence whenever available:
 
@@ -86,7 +89,7 @@ FKT submissions should include verifiable primary-source evidence whenever avail
 
 Historical records without GPS evidence are evaluated individually using available primary sources.
 
-Project Principles
+## Project Principles
 
 - Accuracy and transparency
 - Consistent route and timing definitions
@@ -94,18 +97,18 @@ Project Principles
 - Athlete permission for reproduced content
 - Preservation of historical climbing achievements
 
-Technology
+## Technology
 
 - GitHub Pages — Website hosting
 - Jekyll — Static site generator
 - Markdown, HTML, and CSS — Website content and styling
 - Cloudflare — Custom domain and DNS management
 
-Contact
+## Contact
 
-"contact@climbingfkt.com" (mailto:contact@climbingfkt.com)
+[contact@climbingfkt.com](mailto:contact@climbingfkt.com)
 
-Copyright
+## Copyright
 
 © 2026 Climbing FKT. All rights reserved.
 
