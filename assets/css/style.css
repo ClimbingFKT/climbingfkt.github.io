@@ -726,6 +726,7 @@ figcaption {
   }
 }
 
+
 /* =========================================
    FOOTER
    ========================================= */
@@ -742,14 +743,14 @@ figcaption {
 .footer-notices {
   max-width: 900px;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 24px 24px;
 }
 
 .footer-notice {
   display: flex;
   align-items: flex-start;
-  gap: 22px;
-  padding: 24px 0;
+  gap: 16px;
+  padding: 20px 0;
 }
 
 .footer-notice + .footer-notice {
@@ -759,8 +760,8 @@ figcaption {
 /* Leaf and Mountain Icons */
 
 .footer-notice svg {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   color: #aabbd0;
   stroke-width: 1.5;
@@ -772,7 +773,7 @@ figcaption {
   color: #f1f5f9;
   font-size: 1rem;
   font-weight: 600;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 /* Notice Descriptions */
@@ -780,7 +781,7 @@ figcaption {
 .footer-notice p {
   color: #aab5c3;
   font-size: 0.9rem;
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -791,18 +792,18 @@ figcaption {
 .footer-bottom {
   border-top: 1px solid #303b46;
   text-align: center;
-  padding: 32px 20px;
+  padding: 28px 20px;
   font-size: 0.85rem;
 }
 
 .footer-bottom p {
   color: #8d9baa;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   line-height: 1.6;
 }
 
 .footer-bottom nav {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .footer-bottom a {
@@ -828,12 +829,16 @@ figcaption {
   }
 
   .footer-notices {
-    padding: 20px;
+    padding: 16px 20px;
   }
 
   .footer-notice {
-    gap: 16px;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 14px;
+    padding: 18px 0;
   }
 
   .footer-notice svg {
@@ -843,18 +848,20 @@ figcaption {
 
   .footer-notice h3 {
     font-size: 0.95rem;
+    margin-bottom: 6px;
   }
 
   .footer-notice p {
     font-size: 0.85rem;
+    line-height: 1.6;
   }
 
   .footer-bottom {
-    padding: 28px 16px;
+    padding: 24px 16px;
   }
 
   .footer-bottom nav {
-    margin-top: 16px;
+    margin-top: 14px;
   }
 
 }
