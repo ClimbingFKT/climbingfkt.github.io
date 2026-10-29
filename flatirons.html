@@ -1,32 +1,67 @@
 ---
 layout: default
 title: Flatirons FKTs
-description: Verified climbing fastest known times and speed records in the Boulder Flatirons, Colorado.
+description: Verified climbing fastest known times and speed records in the Flatirons, Boulder, Colorado.
 permalink: /flatirons/
 ---
 
 <section class="region-page">
+
+  <!-- REGION HEADER -->
+
   <header class="region-header">
-    <h1>Flatirons</h1>
+    <h1>The Flatirons</h1>
     <p>
       Verified fastest known times and speed climbing records
-      in Boulder's Flatirons.
+      in the Flatirons of Boulder, Colorado.
     </p>
   </header>
 
-  <div class="region-photo">
-    <!-- Future Flatirons photograph -->
-  </div>
+
+  <!-- REGION PHOTOGRAPH -->
+
+  <figure class="region-photo">
+
+    <img
+      src="{{ '/assets/images/flatirons.jpg' | relative_url }}"
+      alt="The Flatirons rock formations above Boulder, Colorado"
+      loading="lazy"
+    >
+
+    <figcaption>
+      Photo: Photographer Name
+    </figcaption>
+
+  </figure>
+
+
+  <!-- CURRENT RECORDS -->
 
   <section class="region-records">
-    <h2>Climbing Records</h2>
+
+    <h2>Current Climbing Records</h2>
+
     <p>
-      Documenting speed ascents, linkups, and
-      car-to-car efforts throughout the Flatirons.
+      Documenting the fastest verified ascents of
+      the Flatirons' classic climbing routes.
     </p>
 
+
+    <!-- FIND FLATIRONS ROUTES -->
+
+    {% assign flatirons_routes = site.routes
+      | where: "location", "Flatirons"
+      | sort: "title" %}
+
+    {% assign record_count = 0 %}
+
+
+    <!-- RECORDS TABLE -->
+
     <div class="table-scroll">
+
       <table class="records-table">
+
         <thead>
           <tr>
             <th>Route</th>
@@ -36,14 +71,84 @@ permalink: /flatirons/
             <th>Date</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr>
-            <td colspan="5" class="empty-records">
-              Verified records coming soon.
-            </td>
-          </tr>
+
+          {% for route in flatirons_routes %}
+
+            {% if route.records %}
+
+              {% for record in route.records %}
+
+                {% if record.status == "Current FKT" %}
+
+                  <tr>
+
+                    <!-- ROUTE -->
+
+                    <td>
+                      <a href="{{ route.url | relative_url }}">
+                        {{ route.title }}
+                      </a>
+                    </td>
+
+                    <!-- ATHLETE -->
+
+                    <td>
+                      {{ record.athlete }}
+                    </td>
+
+                    <!-- TIME -->
+
+                    <td>
+                      {{ record.time }}
+                    </td>
+
+                    <!-- STYLE -->
+
+                    <td>
+                      {{ record.style }}
+                    </td>
+
+                    <!-- DATE -->
+
+                    <td>
+                      {% if record.date %}
+                        {{ record.date | date: "%b %-d, %Y" }}
+                      {% endif %}
+                    </td>
+
+                  </tr>
+
+                  {% assign record_count = record_count | plus: 1 %}
+
+                {% endif %}
+
+              {% endfor %}
+
+            {% endif %}
+
+          {% endfor %}
+
+
+          <!-- EMPTY STATE -->
+
+          {% if record_count == 0 %}
+
+            <tr>
+              <td colspan="5" class="empty-records">
+                Verified records coming soon.
+              </td>
+            </tr>
+
+          {% endif %}
+
         </tbody>
+
       </table>
+
     </div>
+
   </section>
+
 </section>
