@@ -2,9 +2,9 @@
 layout: route
 title: "The Test"
 location: "Eldorado Canyon"
+permalink: /fkts/eldo/test/
 grade: "5.11b"
 pitches: 6
-
 start: "To be defined"
 finish: "To be defined"
 
