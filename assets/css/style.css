@@ -1043,3 +1043,31 @@ figcaption {
   }
 
 }
+
+
+
+/* REGIONAL PHOTOGRAPH */
+
+.region-photo {
+  margin: 24px 0 40px;
+}
+
+.region-photo img {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.region-photo figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .region-photo img {
+    max-height: 260px;
+  }
+}
