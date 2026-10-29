@@ -847,3 +847,199 @@ figcaption {
     transition: none;
   }
 }
+
+
+
+/* ==========================================
+   ROUTE PAGES
+   ========================================== */
+
+.route-page {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 40px 0 70px;
+}
+
+/* ROUTE HEADER */
+
+.route-header {
+  margin-bottom: 32px;
+}
+
+.route-header h1 {
+  margin-bottom: 8px;
+}
+
+.route-location {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* ROUTE PHOTOGRAPH */
+
+.route-photo {
+  margin: 0 0 36px;
+}
+
+.route-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.route-photo figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.photo-credit {
+  display: block;
+  font-size: 0.8rem;
+}
+
+/* ROUTE INFORMATION */
+
+.route-details {
+  margin-bottom: 40px;
+}
+
+.route-details h2 {
+  margin-bottom: 16px;
+}
+
+.route-details p {
+  margin: 6px 0;
+}
+
+/* VERIFIED RECORDS */
+
+.route-records {
+  margin-bottom: 40px;
+}
+
+.route-records h2 {
+  margin-bottom: 24px;
+}
+
+.record {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.record h3 {
+  margin: 0 0 16px;
+  color: var(--accent);
+}
+
+.record p {
+  margin: 8px 0;
+}
+
+.record strong {
+  color: var(--text);
+}
+
+/* RECORD STATUS */
+
+.record-status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* RECORD NOTES */
+
+.record-notes {
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+/* VERIFICATION SOURCES */
+
+.record-sources {
+  margin-top: 20px;
+}
+
+.record-sources h4 {
+  margin-bottom: 8px;
+}
+
+.record-sources ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.record-sources li {
+  margin-bottom: 6px;
+}
+
+.record-sources a,
+.record-gpx a,
+.record a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.record a:hover {
+  text-decoration: underline;
+}
+
+/* GPX DOWNLOAD */
+
+.record-gpx {
+  margin-top: 16px;
+}
+
+.record-gpx a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.record-gpx a:hover {
+  background: var(--surface-hover);
+}
+
+/* ROUTE HISTORY */
+
+.route-history {
+  margin-top: 40px;
+}
+
+.route-history h2 {
+  margin-bottom: 16px;
+}
+
+.route-history p {
+  margin-bottom: 16px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .route-page {
+    padding: 24px 0 48px;
+  }
+
+  .route-photo img {
+    max-height: 320px;
+  }
+
+  .record {
+    padding: 18px;
+  }
+
+  .record h3 {
+    font-size: 1.1rem;
+  }
+
+}
