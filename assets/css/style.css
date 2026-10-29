@@ -726,3 +726,136 @@ figcaption {
   }
 }
 
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.site-footer {
+  margin-top: 60px;
+  background: #101820;
+  border-top: 1px solid #303b46;
+  color: #aab5c3;
+}
+
+/* Environmental and Safety Notices */
+
+.footer-notices {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.footer-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 24px 0;
+}
+
+.footer-notice + .footer-notice {
+  border-top: 1px solid #303b46;
+}
+
+/* Leaf and Mountain Icons */
+
+.footer-notice svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: #aabbd0;
+  stroke-width: 1.5;
+}
+
+/* Notice Headings */
+
+.footer-notice h3 {
+  color: #f1f5f9;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+/* Notice Descriptions */
+
+.footer-notice p {
+  color: #aab5c3;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =========================================
+   COPYRIGHT AND FOOTER NAVIGATION
+   ========================================= */
+
+.footer-bottom {
+  border-top: 1px solid #303b46;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 0.85rem;
+}
+
+.footer-bottom p {
+  color: #8d9baa;
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.footer-bottom nav {
+  margin-top: 20px;
+}
+
+.footer-bottom a {
+  color: #aabbd0;
+  text-decoration: none;
+  padding: 0 8px;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* =========================================
+   MOBILE FOOTER
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .site-footer {
+    margin-top: 40px;
+  }
+
+  .footer-notices {
+    padding: 20px;
+  }
+
+  .footer-notice {
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .footer-notice svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-notice h3 {
+    font-size: 0.95rem;
+  }
+
+  .footer-notice p {
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom {
+    padding: 28px 16px;
+  }
+
+  .footer-bottom nav {
+    margin-top: 16px;
+  }
+
+}
+
