@@ -1,95 +1,254 @@
-
 ---
 layout: default
 ---
 
 <article class="route-page">
 
+  <!-- ROUTE HEADER -->
+
   <header class="route-header">
     <h1>{{ page.title }}</h1>
 
     {% if page.location %}
-      <p class="route-location">{{ page.location }}</p>
+      <p class="route-location">
+        {{ page.location }}
+      </p>
     {% endif %}
   </header>
+
+
+  <!-- ROUTE PHOTOGRAPH -->
+
+  {% if page.image %}
+    <figure class="route-photo">
+
+      <img
+        src="{{ page.image | relative_url }}"
+        alt="{{ page.image_alt | default: page.title | escape }}"
+        loading="lazy"
+      >
+
+      {% if page.image_caption or page.image_credit %}
+        <figcaption>
+
+          {% if page.image_caption %}
+            {{ page.image_caption }}
+          {% endif %}
+
+          {% if page.image_credit %}
+            <span class="photo-credit">
+              Photo: {{ page.image_credit }}
+            </span>
+          {% endif %}
+
+        </figcaption>
+      {% endif %}
+
+    </figure>
+  {% endif %}
+
+
+  <!-- ROUTE INFORMATION -->
 
   <section class="route-details">
     <h2>Route Information</h2>
 
     {% if page.grade %}
-      <p><strong>Grade:</strong> {{ page.grade }}</p>
+      <p>
+        <strong>Grade:</strong>
+        {{ page.grade }}
+      </p>
     {% endif %}
 
     {% if page.pitches %}
-      <p><strong>Pitches:</strong> {{ page.pitches }}</p>
+      <p>
+        <strong>Pitches:</strong>
+        {{ page.pitches }}
+      </p>
     {% endif %}
 
     {% if page.start %}
-      <p><strong>Start:</strong> {{ page.start }}</p>
+      <p>
+        <strong>Start:</strong>
+        {{ page.start }}
+      </p>
     {% endif %}
 
     {% if page.finish %}
-      <p><strong>Finish:</strong> {{ page.finish }}</p>
+      <p>
+        <strong>Finish:</strong>
+        {{ page.finish }}
+      </p>
     {% endif %}
   </section>
+
+
+  <!-- VERIFIED RECORDS -->
 
   <section class="route-records">
     <h2>Verified Records</h2>
 
     {% if page.records and page.records.size > 0 %}
+
       {% for record in page.records %}
+
         <div class="record">
 
-          <h3>{{ record.category }}</h3>
+          <!-- RECORD CATEGORY -->
 
-          <p>
-            <strong>Athlete:</strong>
-            {{ record.athlete }}
-          </p>
+          {% if record.category %}
+            <h3>{{ record.category }}</h3>
+          {% endif %}
 
-          <p>
-            <strong>Time:</strong>
-            {{ record.time }}
-          </p>
+          <!-- RECORD STATUS -->
 
-          <p>
-            <strong>Date:</strong>
-            {{ record.date | date: "%B %-d, %Y" }}
-          </p>
-
-          <p>
-            <strong>Style:</strong>
-            {{ record.style }}
-          </p>
-
-          {% if record.verification %}
-            <p>
-              <a href="{{ record.verification }}">
-                View Verification
-              </a>
+          {% if record.status %}
+            <p class="record-status">
+              <strong>Status:</strong>
+              {{ record.status }}
             </p>
           {% endif %}
 
+          <!-- ATHLETE -->
+
+          {% if record.athlete %}
+            <p>
+              <strong>Athlete:</strong>
+              {{ record.athlete }}
+            </p>
+          {% endif %}
+
+          <!-- TIME -->
+
+          {% if record.time %}
+            <p>
+              <strong>Time:</strong>
+              {{ record.time }}
+            </p>
+          {% endif %}
+
+          <!-- DATE -->
+
+          {% if record.date %}
+            <p>
+              <strong>Date:</strong>
+              {{ record.date | date: "%B %-d, %Y" }}
+            </p>
+          {% endif %}
+
+          <!-- STYLE -->
+
+          {% if record.style %}
+            <p>
+              <strong>Style:</strong>
+              {{ record.style }}
+            </p>
+          {% endif %}
+
+          <!-- RECORD NOTES -->
+
+          {% if record.notes %}
+            <p class="record-notes">
+              {{ record.notes }}
+            </p>
+          {% endif %}
+
+
+          <!-- VERIFICATION SOURCES -->
+
+          {% if record.sources and record.sources.size > 0 %}
+
+            <div class="record-sources">
+
+              <h4>Verification Sources</h4>
+
+              <ul>
+                {% for source in record.sources %}
+                  <li>
+                    <a
+                      href="{{ source.url | escape }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {{ source.title | default: "View Source" }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+
+            </div>
+
+          {% elsif record.verification %}
+
+            <p>
+              <a
+                href="{{ record.verification | escape }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Verification
+              </a>
+            </p>
+
+          {% endif %}
+
+
+          <!-- TRIP REPORT -->
+
           {% if record.trip_report %}
             <p>
-              <a href="{{ record.trip_report }}">
+              <a
+                href="{{ record.trip_report | escape }}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Read Trip Report
               </a>
             </p>
           {% endif %}
 
+
+          <!-- GPX DOWNLOAD -->
+
+          {% if record.gpx %}
+            <p class="record-gpx">
+              <a
+                href="{{ record.gpx | relative_url }}"
+                download
+              >
+                Download GPX Track
+              </a>
+            </p>
+          {% endif %}
+
         </div>
+
       {% endfor %}
+
     {% else %}
-      <p>No verified records published yet.</p>
+
+      <p>
+        No verified records published yet.
+      </p>
+
     {% endif %}
+
   </section>
 
-  {% if content != "" %}
+
+  <!-- ROUTE HISTORY -->
+
+  {% assign history = content | strip %}
+
+  {% if history != "" %}
+
     <section class="route-history">
       <h2>Route History</h2>
+
       {{ content }}
+
     </section>
+
   {% endif %}
 
 </article>
