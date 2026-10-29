@@ -20,31 +20,16 @@ records:
     time: "00:32:14"
     date: 2024-07-05
     style: "Free solo"
+    support style: "Unsupported"
+    verification status: "verified"
     notes: "Record details."
 
     primary sources:
-
-      - gpx: "/assets/flatirons/gps/second-fkatiron-fkt-sk.gpx"
+      - gps: "/assets/flatirons/gps/second-fkatiron-fkt-sk.gpx"
       - [Soren Kodak Trip Report](https://fastestknowntime.com/fkt/soren-kodak-second-flatiron-boulder-co-2024-07-05)
-      
-    secondary sources:
-      - title: "Published Article"
-        url: "https://example.com/"
-
-  - category: "Solo"
-    status: "Historical FKT"
-    athlete: "Previous Athlete"
-    time: "00:xx:xx"
-    date: xxxx-xx-xx
-    style: "Free solo"
-
-    sources:
-      - title: "Trip Report"
-        url: "https://example.com/"
-
+    
 ---
 
 Freezeway on the Second Flatiron has a recent history of speed climbing.
 
-Additional historical information and context
-can be documented here.
+The route finishes on the summit of the Second Flatiron. 
