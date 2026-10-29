@@ -26,7 +26,7 @@ records:
 
     primary sources:
       - gps: "/assets/flatirons/gps/second-fkatiron-fkt-sk.gpx"
-      - [Soren Kodak Trip Report](na) Originally published on Strava and owned by Sorek Kodak. 
+      - Soren Kodak Trip Report(na) Originally published on Strava and owned by Sorek Kodak. 
     
 ---
 
