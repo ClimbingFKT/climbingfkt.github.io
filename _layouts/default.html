@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
@@ -37,9 +37,12 @@
         Colorado Climbing FKTs
       </a>
 
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav"
+           aria-label="Main navigation">
 
+        <!-- Climbing Areas Dropdown -->
         <div class="dropdown">
+
           <button class="dropbtn"
                   type="button"
                   aria-expanded="false"
@@ -81,18 +84,68 @@
     </div>
   </header>
 
-  <!-- Page Content -->
+
+  <!-- Main Page Content -->
   <main class="site-content">
     {{ content }}
   </main>
 
+
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
+
+    <!-- Environmental and Safety Notices -->
+    <div class="footer-notices">
+
+      <!-- Leave No Trace -->
+      <div class="footer-notice">
+
+        <i data-lucide="leaf"
+           aria-hidden="true"></i>
+
+        <div>
+          <h3>Leave No Trace</h3>
+
+          <p>
+            Respect access restrictions, protect natural
+            areas, minimize environmental impact, and
+            follow Leave No Trace principles.
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- Climbing Safety -->
+      <div class="footer-notice">
+
+        <i data-lucide="mountain"
+           aria-hidden="true"></i>
+
+        <div>
+          <h3>Climbing Safety</h3>
+
+          <p>
+            Rock climbing, scrambling, alpine climbing
+            and mountaineering are dangerous activities
+            that can result in serious injury or death.
+            Information on this website is provided for
+            historical and informational purposes only.
+            Speed records are not recommendations to
+            attempt these routes or times.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Copyright and Navigation -->
+    <div class="footer-bottom">
 
       <p>
-        &copy; {{ 'now' | date: '%Y' }}
-        Colorado Climbing FKTs.
+        &copy; 2026 Colorado Climbing FKTs.
         All rights reserved.
       </p>
 
@@ -101,71 +154,102 @@
         across Colorado.
       </p>
 
-      <p>
-        <a href="{{ '/' | relative_url }}">Home</a>
+      <nav aria-label="Footer navigation">
+
+        <a href="{{ '/' | relative_url }}">
+          Home
+        </a>
         |
-        <a href="{{ '/submit/' | relative_url }}">Submit</a>
+
+        <a href="{{ '/submit/' | relative_url }}">
+          Submit
+        </a>
         |
-        <a href="{{ '/about/' | relative_url }}">About</a>
-      </p>
+
+        <a href="{{ '/about/' | relative_url }}">
+          About
+        </a>
+
+      </nav>
 
     </div>
 
-    
-<div class="site-disclaimer">
-  <p>
-
-   <strong>Leave No Trace:</strong>
-    Respect access restrictions, protect natural areas,
-    minimize environmental impact, and follow
-    <a href="https://lnt.org/why/7-principles/"
-       target="_blank"
-       rel="noopener noreferrer">
-      Leave No Trace principles
-    </a>.
-    
-    </p>
-  
-    <p>
-    <strong>Climbing Safety:</strong>
-    Rock climbing, scrambling, alpine climbing and mountaineering are
-    dangerous activities that can result in
-    serious injury or death. Information on this website
-    is provided for historical and informational purposes
-    only. Speed records are not recommendations to attempt
-    these routes or times.
-  </p>
-
-</div>
-
   </footer>
 
+
+  <!-- Lucide Icons -->
+  <script
+    src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
+  </script>
+
   <script>
-    const dropdownButton = document.querySelector('.dropbtn');
-    const dropdownMenu = document.querySelector('.dropdown-content');
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
 
-    dropdownButton.addEventListener('click', () => {
-      const isOpen =
-        dropdownButton.getAttribute('aria-expanded') === 'true';
 
-      dropdownButton.setAttribute('aria-expanded', String(!isOpen));
-      dropdownMenu.classList.toggle('open', !isOpen);
-    });
+  <!-- Mobile Dropdown Navigation -->
+  <script>
+    const dropdownButton =
+      document.querySelector('.dropbtn');
 
-    document.addEventListener('click', (event) => {
-      if (!event.target.closest('.dropdown')) {
-        dropdownButton.setAttribute('aria-expanded', 'false');
-        dropdownMenu.classList.remove('open');
-      }
-    });
+    const dropdownMenu =
+      document.querySelector('.dropdown-content');
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        dropdownButton.setAttribute('aria-expanded', 'false');
-        dropdownMenu.classList.remove('open');
-        dropdownButton.focus();
-      }
-    });
+    if (dropdownButton && dropdownMenu) {
+
+      dropdownButton.addEventListener('click', () => {
+
+        const isOpen =
+          dropdownButton.getAttribute('aria-expanded')
+          === 'true';
+
+        dropdownButton.setAttribute(
+          'aria-expanded',
+          String(!isOpen)
+        );
+
+        dropdownMenu.classList.toggle(
+          'open',
+          !isOpen
+        );
+
+      });
+
+      document.addEventListener('click', (event) => {
+
+        if (!event.target.closest('.dropdown')) {
+
+          dropdownButton.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+          dropdownMenu.classList.remove('open');
+
+        }
+
+      });
+
+      document.addEventListener('keydown', (event) => {
+
+        if (event.key === 'Escape') {
+
+          dropdownButton.setAttribute(
+            'aria-expanded',
+            'false'
+          );
+
+          dropdownMenu.classList.remove('open');
+
+          dropdownButton.focus();
+
+        }
+
+      });
+
+    }
   </script>
 
 </body>
